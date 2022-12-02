@@ -1,0 +1,109 @@
+#include<iostream>
+using namespace std;
+class IceCafe
+{
+	private :
+		int price;
+		int scoops;
+		bool wafer;
+		int flavour;
+		public :
+			IceCafe()
+			{
+				scoops=2;
+				wafer=true;
+				flavour=1;
+				price=100;
+				cout<<"                                  *******   Welcome to IceCafe   *******     "<<endl;
+			}
+			~IceCafe()
+			{
+			    cout<<"                                         ******* thank you *******     "<<endl;	
+			}
+			void setflavour(int f)
+			{
+				if(f<1||f>5)
+				{
+					cout<<"invalid entry please enter valid flavour"<<endl;
+					cin>>f;
+					setflavour(f);
+				}
+				else
+				flavour=f;
+			}
+			void setwafer(bool w)
+			{
+				wafer=w;
+			}
+			void setscoops(int s)
+			{
+				if(s<1||s>3)
+				{
+					cout<<"invalid entry please re enter no of scoops"<<endl;
+					cin>>s;
+					setscoops(s);
+				}
+				else 
+				scoops=s;
+			}
+			void output()
+			{
+				cout<<"flavour of icecream is :"<<flavour<<endl;
+				cout<<"no of scoops is  :"<<scoops<<endl;
+				cout<<"price of icecream is :"<<price<<endl;
+				if(flavour==2)
+				{
+				cout<<"wafer with icecream ordered or not"<<wafer<<endl;
+			    }
+			}
+			void calprice()
+			{
+				if(flavour==1)
+				{
+					price=100*scoops;
+				}
+				else if(flavour=2)
+				{
+					if(wafer=true)
+					{
+						price=(50*scoops)+10;
+					}
+					else
+					price=50*scoops;
+				}
+			else if(flavour>2||flavour<6)
+				{
+					price=50*scoops;
+				}
+			}
+};
+int main()
+{
+	IceCafe i1;
+	int f;
+	int s;
+	bool w;
+	cout<<"please select your flavour "<<endl;
+	cout<<"press 1 for choclate"<<endl;
+	cout<<"press 2 for vanilla"<<endl;
+	cout<<"press 3 for stawberry"<<endl;
+	cout<<"press 4 for mango"<<endl;
+	cout<<"press 5 for tutti fruit"<<endl;
+	cin>>f;
+	i1.setflavour(f);
+	cout<<"please enter no of scoops"<<endl;
+	cin>>s;
+	i1.setscoops(s);
+	if(f==2)
+	{
+	cout<<"press 1 to order wafer and 0 if don't"<<endl;
+	cin>>w;
+	i1.setwafer(w);  
+    }  
+    i1.calprice();
+	i1.output();
+	
+	
+	
+	
+}

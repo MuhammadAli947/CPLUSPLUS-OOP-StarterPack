@@ -1,0 +1,54 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Person
+{
+protected:
+string name;
+int age;
+char gender;
+public:
+Person()
+{
+cout << "Person Constructor called"<< endl;
+}
+~Person()
+{
+cout << "Person Destructor called" << endl;
+}
+};
+class Doctor:Person
+{
+private:
+int L_no;
+string spec;
+public:
+Doctor()
+{
+cout << "Doc constructor called"<< endl;
+L_no = 123;
+spec = "peads";
+name = "Hasnain";
+age = 90;
+gender = 'M';
+}
+~Doctor()
+{
+cout << "Doc Destructor called" << endl;
+
+}
+void output()
+{
+cout << "name : " << name << endl;
+cout << "age : " << age << endl;
+cout << "gender : " << gender << endl;
+cout << "Licence : " << L_no << endl;
+cout << "specialization : " << spec << endl;
+
+}
+};
+void main()
+{
+Doctor D;
+D.output();
+}

@@ -1,0 +1,6 @@
+Bus no is :  2
+Bus route is : 2
+Seat no selected is : 15
+Bus no is :  2
+Bus route is : 2
+Seat no selected is : 25

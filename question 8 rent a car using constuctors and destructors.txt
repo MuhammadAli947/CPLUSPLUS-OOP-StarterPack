@@ -1,0 +1,125 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class rentcar
+{
+	private :
+		string person;
+		string cnic;
+		int car;
+		string cellno;
+		int days;
+		int amount;
+		public :
+			rentcar()
+			{
+				person="ali";
+				cnic="11101-5647574-3";
+				days=2;
+				amount=5000;
+				cout<<"                        ***** Welcome to Ali Rent a Car *****"<<endl;
+			}
+			~rentcar()
+			{
+				cout<<"                    ***** Thanks for visiting Ali Rent a Car *****"<<endl;
+			}
+			void setcar(int c)
+			{
+				car=c;
+			}
+			void setperson(string n)
+			{
+				person=n;
+			}
+			void setcnic(string c)
+			{
+				cnic=c;
+			}
+			void setcellno(string cell)
+			{
+				cellno=cell;
+			}
+			void setdays(int d)
+			{
+				days=d;
+			}
+			void calprice()
+			{
+			if(car==1)
+		    {
+			 amount=1800*days;	
+			}
+			else if(car==2)
+			{
+				amount=2500*days;
+			}
+			else if(car==3)
+			{
+				amount=5000*days;
+				}	
+			}
+			void input()
+			{
+				string cb;
+				cout<<"please enter you name"<<endl;
+	            cin>>person;
+	            setperson(person);
+             	cout<<"please enter your cnic no"<<endl;
+            	cin>>cnic;
+            	setcnic(cnic);
+            	cout<<"please enter your cell no"<<endl;
+            	cin>>cb;
+             	setcellno(cb);
+            	cout<<"please enter no of days"<<endl;
+            	cin>>days;
+            	setdays(days);
+			}
+			void output()
+			{
+				if(car==1)
+				{
+				cout<<"name of car is : suzuki mehran"<<endl;
+				cout<<"price of car is : 1800p/day"<<endl;
+			}
+			if(car==2)
+			{
+				cout<<"name of car is : vxr(alto)"<<endl;
+				cout<<"price of car is : 2500p/day"<<endl;
+			}
+			if(car==3)
+			{
+				cout<<"name of car is : corrolla"<<endl;
+				cout<<"price of car is : 5000p/day"<<endl;
+			}
+				cout<<"total amount is :"<<amount<<endl;
+				cout<<"Name of customer is :"<<person<<endl;
+				cout<<"Cnic of customer is"<<cnic<<endl;
+				cout<<"Selected days for are :"<<days<<endl;
+				cout<<"Cell no of customer is :"<<cellno<<endl;
+			}
+			
+			
+};
+int main()
+{
+	string name;
+	string cnic;
+	string cellno;
+	int c;
+	int d;
+	rentcar r1;
+	cout<<"Names,Type,Power and Rate of cars is given below"<<endl;
+	cout<<"Name\t\ttype\t\tPower\t\tRate"<<endl;
+	cout<<"1 : mehran\t\tcar\t\t800cc\t\t1800"<<endl;
+	cout<<"2 : alto\t\tcar\t\t1000cc\t\t2500"<<endl;
+	cout<<"3 : corolla\t\tcar\t\t1300cc\t\t5000"<<endl;
+	cout<<"please select your choice no "<<endl;
+	cin>>c;
+	r1.setcar(c);
+	r1.input();
+	r1.calprice();
+	r1.output();
+	
+	
+	
+}

@@ -1,0 +1,77 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class bike
+{
+	private :
+		int power;
+		string engineno;;
+		int price;
+		public :
+			bike ()
+			{
+				power=125;
+				engineno="abc123456";
+				price=108000;
+				cout<<"constructor called"<<endl;
+			}
+			bike(const bike &obj)
+			{
+				power=obj.power;
+				engineno=obj.engineno;
+				price=obj.price;
+			}
+			~bike()
+			{
+				cout<<"destructor called"<<endl;
+			}
+			void setpower(int p)
+			{
+			power=p;
+				
+			}
+			void setengineno(string en)
+			{
+				engineno=en;
+			}
+			void setprice(int p)
+			{
+				price=p;
+			}
+			
+			string getengineno()
+			{
+				return engineno;
+			}
+			int getpower()
+			{
+				return power;
+			}
+			int getprice()
+			{
+				return price;
+			}
+			void output()
+			{
+				cout<<"engine no is :"<<engineno<<endl;
+				cout<<"power of bike is :"<<power<<endl;
+				cout<<"price of bike is :"<<price<<endl;
+			}
+			
+			
+			
+		
+};
+int main()
+{
+	bike b;
+	b.setengineno("abc123456");
+	b.setpower(125);
+    b.setprice(108000);
+    b.output();
+    bike b1(b);
+    b1.output();
+    
+	
+	
+}

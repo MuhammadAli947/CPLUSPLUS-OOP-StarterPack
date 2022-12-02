@@ -1,0 +1,92 @@
+#include<iostream>
+using namespace std;
+class rectangle
+{
+	private:
+		int length;
+		int width;
+		int area;
+		public :
+		
+			rectangle()
+			{
+				length=10;
+			    width=20;
+			    area=200;
+				cout<<"constucter called"<<endl;
+				
+			}
+			~rectangle()
+			{
+				cout<<"drestrctor called"<<endl;
+			}
+			void setlength(int l)
+			{
+				if(l<1)
+				{
+					cout<<"please enter valid value"<<endl;
+					setlength(l);
+				}
+				else
+				length=l;
+			}
+		    void setwidth(int w)
+		    {
+		    	if(w<1)
+		    	{
+		    		cout<<"please enter valid value"<<endl;
+		    		setwidth(w);
+				}
+				else
+				{
+				
+				width=w;
+			}
+		}
+		    void calarea()
+		    {
+		    	area=length*width;
+		    	cout <<"area="<<area<<endl;
+			}
+			void input()
+			{
+				int a;
+				int b;
+				cout<<"please enter value of length"<<endl;
+				cin>>a;
+				setlength(a);
+				cout<<"please enter value of width"<<endl;
+				cin>>b;
+				setwidth(b);
+				
+			}
+			void output()
+			{
+				cout<<"length="<<length<<endl;
+				cout<<"width="<<width<<endl;
+				cout<<"area="<<area<<endl;
+			}
+			void incvalues()
+			{
+				length=++length;
+				width=width+4;
+			}
+		    
+		    int getlength()
+			{
+				return length;
+			}
+			int getwidth()
+			{
+				return width;
+			}
+			
+};
+int main()
+{
+	rectangle r1;
+	r1.output();
+	r1.incvalues();
+	r1.output();
+	
+}

@@ -1,0 +1,101 @@
+DEEP COPY + SHALLOW COPY + FRIEND FUNCTIONS + FRIEND CLASSES
+
+#include<iostream>
+#include<string>
+using namespace std;
+class bike;// forward declaration
+class sportsbike
+{
+friend bike;
+private:
+string owner;
+public:
+sportsbike()
+{
+owner = "Hasnain";
+}
+
+};
+class bike
+{
+
+private:
+int *price;
+int cc;
+string color;
+int eng_no;
+int chasis_no;
+public:
+friend void output(bike &obj);
+bike()
+{
+cout << "constructor called"<< endl;
+price = new int(90000);
+cc = 70;
+color = "red";
+eng_no = 123;
+chasis_no = 999;
+}
+void ShowFriend(sportsbike &SP)
+{
+cout << SP.owner << endl;
+}
+bike(bike &obj)
+{
+cout<<"Copy Constructor Called"<<endl;
+price = new int(*obj.price);//deep copy 
+//price = obj.price; shallow copy
+cc = obj.cc;
+color = obj.color;
+eng_no = obj.eng_no;
+chasis_no = obj.chasis_no;
+}
+
+void setChasis(int x)
+{
+chasis_no = x;
+}
+void setColor(string c)
+{
+color = c;
+}
+void setPrice(int p)
+{
+*price = p;
+}
+void setCC(int c)
+{
+if (c == 70 || c == 125)
+cc = c;
+else
+{
+cout << "Invalid cubic capacity..enter again" << endl;
+cin >> c;
+setCC(c);
+}
+}
+void setEng(int e)
+{
+eng_no = e;
+}
+//void outPut() const
+//{
+// cout << "Color of bike : " << color << endl;
+// cout << "Chasis number of bike : " << chasis_no << endl; 
+// cout << "engine number of bike : " << eng_no << endl;
+// cout << "Cubic Capacity of bike : " << cc << endl;
+// cout << "Price of bike : " << *price << endl;
+//}
+};
+void output(bike &obj)
+{
+cout << "Price of bike"<<*obj.price << endl;
+cout << "CC of bike" << obj.cc << endl;
+//..........
+}
+void main()
+{
+bike B1;
+output(B1);
+
+}

@@ -1,0 +1,24 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main()
+{
+	ofstream out;
+	out.open("input.txt");
+	out<<" Oop"<<endl;
+	out<<" s6 "<<endl;
+	out.close();
+	ifstream in;
+	in.open("input.txt");
+	if(in.is_open())
+	{
+		string read;
+		while(!in.eof())
+		{
+			getline(in,read);
+			cout<<read;
+		}
+	}
+	
+
+}

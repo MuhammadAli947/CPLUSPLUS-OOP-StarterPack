@@ -1,0 +1,80 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class pizzeria
+{
+	private :
+		int price ;
+		int size;
+		bool topings;
+		public :
+			pizzeria()
+			{
+				size=6;
+				topings=true;
+				price=300;
+				cout<<"constructor called"<<endl;
+			}
+			~pizzeria()
+			{
+				cout<<"destructor called"<<endl;
+			}
+			void setsize(int s)
+			{
+				if(s==6||s==8||s==12)
+				{
+					size=s;
+				}
+				else
+				{
+					cout<<"please enter valid size"<<endl;
+					cin>>s;
+					setsize(s);
+					
+				}
+			}
+			void settoping(bool t)
+			{
+				
+					topings=t;
+			}
+			void calprice()
+			{
+				if(topings==true)
+				{
+					price=50*size+100;
+				}
+				else
+				price=50*size;
+			}
+			void output()
+			{
+				cout<<"size of pizza is:"<<size<<endl;
+				cout<<"topings of pizza is :"<<topings<<endl;
+				cout<<"price of pizza is :"<<price<<endl;
+			}
+			
+			
+		
+};
+int main()
+{
+	int b;
+	bool t;
+	string msg="welcome to pizzeria";
+	for(int i=0;i<msg.length();i++)
+	{
+		cout<<msg[i];
+		
+	}
+	cout<<endl;
+	pizzeria p1;
+	cout<<"please enter size of pizza"<<endl;
+	cin>>b;
+	p1.setsize(b);
+	cout<<"please press 1 for extra toping else 0"<<endl;
+	cin>>t;
+	p1.settoping(t);
+	p1.calprice();
+	p1.output();
+	}

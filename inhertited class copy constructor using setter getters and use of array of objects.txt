@@ -1,0 +1,180 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Person
+{
+protected:
+int *age;
+string name;
+char gender;
+public:
+Person()
+{
+cout <<"Person Constructor called" << endl;
+age = new int(28);
+}
+~Person()
+{
+cout << "Person Destructor called" << endl;
+}
+void setName(string n)
+{
+name = n;
+}
+void setAge(int a)
+{
+if (a<0 || a>120)
+{
+cout << "Invalid Age..Enter again" << endl;
+cin >> a;
+setAge(a);
+}
+else
+*age = a;
+}
+void setGender(char g)
+{
+if (g == 'm' || g == 'f' || g == 'M' || g == 'F')
+{
+gender = g;
+}
+else
+{
+cout << "Invalid gender..Enter Again" << endl;
+cin >> g;
+setGender(g);
+}
+}
+void outPut()const
+{
+cout << "Name : " << name << endl;
+cout << "Age : " << *age << endl;
+cout << "Gender : " << gender << endl;
+
+}
+
+};
+class Doctor :public Person
+{
+private:
+int Lic_no;
+string specialization;
+public:
+Doctor()
+{
+cout << "Doctor Constructor Called" << endl;
+}
+~Doctor()
+{
+cout << "Doctor Destructor Called" << endl;
+}
+Doctor(Doctor &D)
+{
+int lc;
+cout << "Enter Name of Doctor" << endl;
+cin >> name;
+cout << "Enter Lic_no of Doctor" << endl;
+cin >> lc;
+setLic(lc);
+age = new int(*D.age);//---Deep Copy
+gender = D.gender;
+specialization = D.specialization;
+}
+void setLic(int l)
+{
+if (l > 9999 && l < 99999)
+Lic_no = l;
+else
+{
+cout << "Invalid number..Enter Again" << endl;
+cin >> l;
+setLic(l);
+}
+}
+void setSpec(string s)
+{
+specialization = s;
+}
+void D_output()const
+{
+cout << "Name : " << name << endl;
+cout << "Age : " << *age << endl;
+cout << "Gender : " << gender << endl;
+cout << "Licence_No : " << Lic_no << endl;
+cout << "Specialization : " << specialization << endl;
+}
+};
+void main()
+{
+/*Doctor D;
+D.setName("Hasnain");
+D.setAge(26);
+D.setGender('M');
+D.setLic(111);
+D.setSpec("PEADS");
+D.D_output();
+Doctor D2(D);
+cout << "************" << endl;
+D2.D_output();
+cout << "************" << endl;
+D2.setName("ALI");
+D2.setSpec("surgeon");
+D2.D_output();*/
+
+///**************for copy Constructor*********
+/*Doctor D;
+D.setName("Hasnain");
+D.setAge(26);
+D.setGender('M');
+D.setLic(111);
+D.setSpec("PEADS");
+D.D_output();
+cout << endl;
+Doctor D2(D);
+D2.setAge(10);
+D.D_output();*/
+//**********************************************
+
+
+//*************ARRAY***********************
+int size;
+cout << "Enter size of Array" << endl;
+cin >> size;
+//Doctor D[size];------------->
+Doctor *D=new Doctor[size]; 
+int a;
+string n;
+int li;
+char g;
+string sp;
+for (int i = 0; i < size; i++)
+{
+cout << "Enter Data of Doctor : " << i+1 << endl;
+cout << endl;
+cout << "Enter name of Doctor" << endl;
+cin >> n;
+D[i].setName(n);
+cout << "Enter age of Doctor" << endl;
+cin >> a;
+D[i].setAge(a);
+cout << "Enter gender of Doctor" << endl;
+cin >> g;
+D[i].setGender(g);
+cout << "Enter Licence number of Doctor" << endl;
+cin >> li;
+D[i].setLic(li);
+cout << "Enter Specialization of Doctor" << endl;
+cin >> sp;
+D[i].setSpec(sp);
+cout << "*******************" << endl;
+cout << endl;
+}
+for (int i = 0; i < size; i++)
+{
+cout << "Data of Doctor : " << i + 1 << endl;
+D[i].D_output();
+cout << "**************************" << endl;
+cout << endl;
+}
+
+}

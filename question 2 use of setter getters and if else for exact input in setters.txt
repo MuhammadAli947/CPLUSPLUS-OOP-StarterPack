@@ -1,0 +1,149 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class car
+{
+	private :
+	string name;
+	int model;
+	string price;
+	public :
+		car()
+		{
+		   cout <<"constuctor called"<<endl;	
+		}
+		~car()
+		{
+			
+			
+			
+			cout <<"destructor called"<<endl;
+		}
+		void output()
+		{
+			cout<<model<<endl;
+			cout<<name<<endl;
+			cout<<price<<endl;
+		}
+		void setname(string n)
+		{
+			name=n;
+		}
+		void setmodel(int m)
+		{
+			if(m>1990)
+			{
+				model=m;
+			}
+			else
+			{
+				cout<<"invalid input"<<endl;
+			}
+		}
+		void setprice(string p)
+		{
+			price=p;
+		}
+		string getprice()
+		{
+			return price;
+		}
+		string getname()
+		{
+			return name;
+		}
+		int getmodel()
+		{
+			return model;
+		}
+        
+
+};
+class library
+{
+	private :
+		int bookno;
+		string bookname;
+		int shelfno;
+   	public :
+		library()
+		{
+		   	cout <<"constructor called"<<endl;
+		}
+		~library()
+		{
+			cout<<"destructor called"<<endl;
+		}
+		void setbookno(int no)
+		{
+		
+			
+			 if(no<1)
+			 {
+			 	cout<<"please enter book no"<<endl;
+			cin>>no;
+			
+			setbookno(no);
+			
+			 	
+			 }
+			 else
+			 bookno=no;
+			
+		}
+			
+		  
+	         
+		
+		void setbookname(string name)
+		{
+		  bookname=name;	
+		}
+		void setshelfno(int s)
+		{
+			if(s>1)
+			{
+				shelfno=s;
+			}
+			else
+			{
+			   cout <<"invalid input"<<endl;
+			}
+		}
+      	int getbookno()
+     	{
+		return bookno;
+	    }
+        string getbookname()
+        {
+            return bookname	;
+      	}
+		int getshelfno()
+		{
+			return shelfno;
+		}
+				
+};
+int main()
+{
+	car c1;
+	c1.output();
+	c1.setname("corrolla");
+	c1.setmodel(1998);
+	c1.setprice("900000");
+	c1.output();
+/*	cout<<c1.getname()<<endl;
+	cout<<c1.getmodel()<<endl;
+	cout<<c1.getprice()<<endl;
+	library l1;
+	l1.setbookname("chemistry");
+	l1.setbookno();
+	l1.setshelfno(5);
+	cout<<l1.getbookname()<<endl;
+	cout<<l1.getbookno()<<endl;
+	cout<<l1.getshelfno()<<endl;*/
+		
+	
+	
+	
+}

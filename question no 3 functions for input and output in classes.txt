@@ -1,0 +1,78 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class car
+{
+	private :
+		int model;
+		string name;
+		string price;
+	public :
+		
+		car()
+		{
+			cout <<"constructor called"<<endl;
+		}
+		
+        ~car()
+        {
+        	cout <<"destructor called"<<endl;
+		}
+		
+		void input()
+		{
+                        int m;
+		        string n;
+		        string p;
+			cout <<"enter model of car"<<endl;
+			cin >>m;
+			setmodel(m);
+			cout <<"enter name  of car"<<endl;
+			cin>>n;
+                        setname(n);
+			cout <<"enter price of car"<<endl;
+			cin>>p;
+                        setprice(p);
+		}
+		void output()
+		{
+			cout<<"model of car is :"<<m<<endl;
+			cout<<"name of car is :"<<n<<endl;
+			cout<<"price of car is :"<<p<<endl;
+		}
+		void setmodel(int m)
+		{
+			if(m<1980)
+			{
+				cout<<"please enter valid model"<<endl;
+				cin>>m;
+				setmodel(m);
+			}
+			else
+			model=m;
+		}
+		void setname(string n)
+		{
+			name=n;
+		}
+		void setprice(string p)
+		{
+			price=p;
+		}
+		int getmodel()
+		{
+			return model;
+		}
+		string getname()
+		{
+			return name;
+		}
+        		
+};
+int main()
+{
+	car c1;
+	c1.input();
+	c1.output();
+	
+}

@@ -1,0 +1,92 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class car
+{
+	private :
+		int model;
+		string name;
+		string price;
+	public :
+		
+		car()
+		{
+			cout <<"constructor called"<<endl;
+		}
+		car(int m,string n,string p)//constructor overloading
+		{
+			model=m;
+			name=n;
+			price=p;
+		}
+		car(int m)
+		{
+			model=m;
+			name="Suzuki";
+			price="500000";
+		}
+		
+		
+        ~car()
+        {
+        	cout <<"destructor called"<<endl;
+		}
+	
+		void input()
+		{
+				int m;
+		string n;
+		string p;
+			cout <<"enter model of car"<<endl;
+			cin >>m;
+			setmodel(m);
+			cout <<"enter name  of car"<<endl;
+			cin>>n;
+			//call set fuctions here
+			cout <<"enter price of car"<<endl;
+			cin>>p;
+		}
+		void output()
+		{
+			cout<<"model of car is :"<<model<<endl;
+			cout<<"name of car is :"<<name<<endl;
+			cout<<"price of car is :"<<price<<endl;
+		}
+		void setmodel(int m)
+		{
+			if(m<1980)
+			{
+				cout<<"please enter valid model"<<endl;
+				cin>>m;
+				setmodel(m);
+			}
+			else
+			model=m;
+		}
+		void setname(string n)
+		{
+			name=n;
+		}
+		void setprice(string p)
+		{
+			price=p;
+		}
+		int getmodel()
+		{
+			return model;
+		}
+		string getname()
+		{
+			return name;
+		}
+        		
+};
+int main()
+{
+	car c1;
+	c1.output();
+	car c2(1992,"honda","100000");
+	c2.output();
+	car c3(18);
+	c3.output();
+}
